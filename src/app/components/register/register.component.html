@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col px-5">
+        <form class="col-md-6 col-sm-12 mx-auto" [formGroup]="form">
+            <div class="card p-5">
+                <div class="form-group">
+                    <label for="formEmailInput">Nome: </label>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    id="formNameInput" 
+                    formControlName="name"
+                    placeholder="Insira o seu nome" 
+                    required>
+                </div>
+                <div class="form-group">
+                    <label for="formEmailInput">Email: </label>
+                    <input 
+                    type="email" 
+                    formControlName="email" 
+                    class="form-control" 
+                    id="formEmailInput"
+                    placeholder="Insira o seu e-mail">
+                </div>
+                <div class="form-group">
+                    <label for="formPasswordInput">Senha: </label>
+                    <input 
+                    type="password" 
+                    class="form-control" 
+                    id="formPasswordInput" 
+                    formControlName="password"
+                    placeholder="Insira a sua senha">
+                </div>
+                <div class="form-group">
+                    <label for="formPasswordInput">Senha: </label>
+                    <input 
+                    type="password" 
+                    class="form-control" 
+                    id="formPasswordInput" 
+                    formControlName="confPassword"
+                    placeholder="Insira a sua senha">
+                </div>
+                <div class="form-group">
+                    <label for="formPasswordInput">Acesso </label>
+                    <select class="form-group form-control" formControlName="roles">
+                        <option value="" selected>Selecione</option>
+                        <option value="1">User</option>
+                        <option value="2">Admin</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button  class="btn btn-success" (click)="register()">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

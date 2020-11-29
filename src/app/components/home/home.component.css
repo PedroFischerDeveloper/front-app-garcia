@@ -1,0 +1,17 @@
+.container {
+    margin-top: 5px;
+}
+.bg-gray {
+    background: #eee;
+}
+.card {
+    border-radius: 5px;
+}
+.card-head {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 15px;
+    background: red;
+}
+
+
