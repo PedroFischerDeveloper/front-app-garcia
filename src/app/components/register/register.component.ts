@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-
+import {DefaultService} from "../../DefaultService";
 import { Router } from '@angular/router';
+import {UserRegister} from '../shared/types/types';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-register',
@@ -19,24 +21,14 @@ export class RegisterComponent implements OnInit {
     name: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
-    confPassword: new FormControl(''),
-    roles: new FormControl(''),
+    confPassword: new FormControl('')
   });
 
-  constructor() { }
+  constructor(private service:DefaultService) { }
 
   ngOnInit(): void {
   }
 
-  enc(str) {
-    var encoded = "";
-    for (let i=0; i<str.length;i++) {
-    var a = str.charCodeAt(i);
-    var b = a ^ 123;    // bitwise XOR with any number, e.g. 123
-    encoded = encoded+String.fromCharCode(b);
-  }
-    return encoded;
- }
 
   register() {
 
@@ -45,8 +37,18 @@ export class RegisterComponent implements OnInit {
       alert("Confirmação de senha e senha precisam ser iguais");
       return false;
     }
-    
-
+ 
+    this.service.create("users", this.form.value)
+    .subscribe( response => {
+      console.log(response)
+    },
+    err => {
+      Swal.fire({
+        icon: 'error',
+        title: err.error.error,
+        text: 'Tente novamente'
+      })
+    })
   }
 
 }
