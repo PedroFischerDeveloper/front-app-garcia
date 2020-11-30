@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import {DefaultService} from "../../DefaultService";
 import { Router } from '@angular/router';
-import {UserRegister} from '../shared/types/types';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -24,23 +23,17 @@ export class RegisterComponent implements OnInit {
     confPassword: new FormControl('')
   });
 
-  constructor(private service:DefaultService) { }
+  constructor(private _router: Router, private service:DefaultService) { }
 
   ngOnInit(): void {
   }
 
-
   register() {
-
-    if(this.form.value.confPassword != this.form.value.password)
-    {
-      alert("Confirmação de senha e senha precisam ser iguais");
-      return false;
-    }
- 
-    this.service.create("users", this.form.value)
+    this.service.create("users/cors-anywhere.herokuapp.com", this.form.value)
     .subscribe( response => {
-      console.log(response)
+      if(response) {
+        this._router.navigate(['dashboard']);
+      }
     },
     err => {
       Swal.fire({

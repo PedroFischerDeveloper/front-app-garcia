@@ -4,10 +4,10 @@
             <div *ngFor="let d of data" class="card mb-3 text-center">
                 <div class="card-head"></div>
                 <div class="card-body">
-                    <h5 class="card-title">{{d.title}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{d.subtitle}}</h6>
-                    <p class="card-text">{{d.description}}</p>
-                    <a href="">Ver</a>
+                    <h5 class="card-title">{{d.content}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{d.subject}}</h6>
+                    <small>{{d.creationDate}}</small><br>
+                    <a href="" (click)="navigateTo(d.id)">Ver</a>
                 </div>
             </div>
         </div>

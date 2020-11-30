@@ -20,39 +20,21 @@ export class DashboardComponent implements OnInit {
     id:2,
     title: "comments",
     role: 1,
-  },
-  {
-    id:3,
-    title: "users",
-    role: 2,
   }]; 
 
 
-  public data: any = {
-    topic: [{
-      id:1,
-      name: 'Functional Programing',
-    }],
-    posts: [{
-      id:1,
-      name: 'Getting Start Haskell',
-    }],
-    users: [{
-      id:1,
-      name: 'default user',
-    }],
-  }
+  public data;
+
   constructor(private _router: Router, private service: DefaultService){ }
 
   ngOnInit(): void {
 
     this.service.getAll("topics").subscribe((response: any) => {
-      console.log(response);
+      console.log(response)
+      console.log(this.data)
+      this.data = response;
     });
 
-    this.service.getAll("posts").subscribe((response: any) => {
-      console.log(response);
-    });
 
   }
 

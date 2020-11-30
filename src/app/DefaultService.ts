@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class DefaultService {
 
   
-  private base = "https://apiids.herokuapp.com/api/";
-
+  private base = "http://apiids.herokuapp.com/api/";
+  
   constructor(private http: HttpClient) { }
 
   getAll(url: string,  order: string = "asc", page: number = 1, limit: number = 100) {
