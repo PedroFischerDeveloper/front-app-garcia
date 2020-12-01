@@ -4,11 +4,16 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthComponent } from './components/auth/auth.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
+import { DetailsComponent} from './components/details/details.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'details',
+    component: DetailsComponent,
   },
   {
     path: 'register',
