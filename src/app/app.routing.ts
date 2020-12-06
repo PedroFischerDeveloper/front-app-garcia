@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthComponent } from './components/auth/auth.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import { DetailsComponent} from './components/details/details.component';
+import { PostEditComponent } from './components/post-edit/post-edit.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'post',
     component: PostsComponent,
+  },
+  {
+    path: 'post/edit/:id',
+    component: PostEditComponent,
   },
   { path: '**', redirectTo: '/home' }
 ];

@@ -28,8 +28,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  redirect(route) {
+    
+  }
+
   register() {
-    this.service.create("users/cors-anywhere.herokuapp.com", this.form.value)
+    this.service.login("login", this.form.value)
     .subscribe( response => {
       if(response) {
         this._router.navigate(['dashboard']);

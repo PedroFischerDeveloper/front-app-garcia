@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -19,16 +19,24 @@ export class DefaultService {
     return this.http.get(this.base + url + id);
   }
 
-  create(url: string, body: any) {
-    return this.http.post(this.base + url, body);
+  login(url: string, body: any) {
+    return this.http.post(this.base + url, body, {observe: 'response'});
+  }
+
+  create(url: string, body: any, token: any) {
+    return this.http.post(this.base + url, body,{
+      headers: new HttpHeaders().set('Authorization', token),
+    });
   }
 
   update(url: string, id: number, body:string) {
-    return this.http.put(`${this.base + url}/${id}`, body);
+    return this.http.put(`${this.base + url}/${id}`, body, {observe: 'response'});
   }
 
-  delete(url: string, id: number) {
-    return this.http.delete(`${this.base + url}/${id}`);
+  delete(url: string, id: number, token) {
+    return this.http.delete(`${this.base + url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', token),
+    });
   }
 
 

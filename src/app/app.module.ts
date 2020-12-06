@@ -14,7 +14,7 @@ import { HeadComponent } from './components/shared/templates/head/head.component
 import { FooterComponent } from './components/shared/templates/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import {  PostEditComponent } from '../app/components/post-edit/post-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeadComponent,
     FooterComponent,
     DashboardComponent,
-    DetailsComponent
+    DetailsComponent, 
+    PostEditComponent
   ],
   imports: [
     BrowserModule,

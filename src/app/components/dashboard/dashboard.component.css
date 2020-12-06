@@ -1,6 +1,30 @@
-@media only screen and (max-width: 768) {
-    .responsive {
-        display: none;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+.border-bottom-color {
+    border-bottom: 1px solid red;
 }
+
+.bg-red {
+    background: red;
+}
+.bg-gray {
+    background: #eee;
+}
+.bg-white {
+    background: #eee;
+}
+.effect {
+    background: none;
+    border-radius: 2px;
+    transition: all 500ms ease; 
+}
+.effect:hover {
+    background: red;
+    color: white;
+}
+.titleLogo {
+    font-size: 1.6em;
+    color: red;
+    font-family: 'Roboto', sans-serif;
+}
+
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { NavigationEnd } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import {DefaultService} from "../../DefaultService";
 
 @Component({
@@ -14,8 +14,7 @@ export class HomeComponent implements OnInit {
   public menu: any[] = [];
 
 
-  constructor(private service:DefaultService) { }
-
+  constructor(private service:DefaultService, private _router: Router) { }
 
   ngOnInit(): void {
     this.service.getAll("topics").subscribe((response: any) => {
@@ -25,6 +24,10 @@ export class HomeComponent implements OnInit {
   }
   navigateTo(id) {
     console.log(id)
+  }
+
+  redirect(route) {
+    this._router.navigate([route]);        
   }
 
 }

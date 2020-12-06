@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DefaultService } from 'src/app/DefaultService';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+
+
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -20,11 +23,21 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  redirect(route) {
+    this._router.navigate([route]);   
+  }
+
   login() {
   
-    this.service.create("users/login", this.form.value)
-    .subscribe( response => {
-      if(response) {
+    this.service.login("users/login", this.form.value)
+    .subscribe((resp)=> {
+      if(resp) {
+
+        const user = {
+          token: resp.headers.get('authorization'),
+          user: resp
+        };
+        localStorage.setItem('user', JSON.stringify(user));
         this._router.navigate(['dashboard']);
       }
     },
