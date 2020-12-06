@@ -1,7 +1,9 @@
 <div class="container-fluid p-5 mb-3 bg-gray">
     <div class="row">
         <div class="col-md-6 col-sm-12 mt-2 mb-2 text-center">
-            <h4 class="titleLogo"><a [routerLink]="['']">DevForum</a></h4>
+            <h4 class="titleLogo">
+                <a [routerLink]="['']">DevForum</a>
+            </h4>
         </div>
        
         <div class="col-md-6 col-sm-12 mt-2 mb-2 text-center" *ngIf="!token">
@@ -27,7 +29,9 @@
 </nav>
 
 <div class="container-fluid bg-gray p-5" style="max-width: 800px;" *ngIf="!loading">
-    <h1 class="text-center" >{{topic.subject}}</h1>
+    
+    <h2 class="text-center" >{{topic.subject}}</h2>
+    <h4 class="text-center" *ngIf="topic.status=='CLOSED'">FECHADO</h4>
     <div class="card p-5" style="border: 1px solid red">
         <div class="row">
             <div class="col-md-3 col-sm-12">

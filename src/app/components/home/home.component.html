@@ -38,12 +38,16 @@
     <div class="row">
         <div class="col-md-10 col-sm-12 mx-auto ">
             <div *ngFor="let d of data" class="card mb-3 text-center">
-                <div class="card-head"></div>
+                <div class="card-head">
+                  
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{d.content}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{d.subject}}</h6>
+                    <h5 class="card-title">{{d.subject}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{d.content}}</h6>
                     <small>{{d.creationDate}}</small><br>
+                    <small></small>
                     <a [routerLink]="['topic/details/', d.id]">Ver</a>
+                    <h6 class="text-center mt-5" *ngIf="d.status=='CLOSED'">FECHADO</h6>
                 </div>
             </div>
         </div>
