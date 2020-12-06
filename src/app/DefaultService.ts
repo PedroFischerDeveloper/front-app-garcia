@@ -29,6 +29,10 @@ export class DefaultService {
     });
   }
 
+  register(url: string, body: any) {
+    return this.http.post(this.base + url, body)
+  }
+
 
   newPost(url: string, body: any, token: any, id:number) {
     return this.http.post(this.base + url + id, body,{

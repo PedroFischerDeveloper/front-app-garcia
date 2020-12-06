@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.service.login("login", this.form.value)
+    this.service.register("users", this.form.value)
     .subscribe( response => {
       if(response) {
         this._router.navigate(['dashboard']);
