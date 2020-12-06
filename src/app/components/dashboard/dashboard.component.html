@@ -33,7 +33,7 @@
                 <tbody>
                     <tr *ngFor="let d of data">
                         <th scope="row">{{d.id}}</th>
-                        <td>{{d.content}}</td>
+                        <td>{{d.subject}}</td>
                         <td>{{d.creationDate}}</td>
                         <td>
                             <a class="btn btn-primary ml-1 mr-1"  [routerLink]="['/topic/edit', d.id]">
