@@ -87,5 +87,6 @@ export class DetailsComponent implements OnInit {
 
   logout() {
     localStorage.clear();
+    this._router.navigate(['auth']);
   }
 }

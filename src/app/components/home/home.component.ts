@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.loadData();
   }
-  
+
   loadData() {
     this.service.getAll("topics").subscribe((response: any) => {
       console.log(response)
@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
   }
   logout() {
     localStorage.clear();
+    this._router.navigate(['auth']); 
   }
   redirect(route) {
     this._router.navigate([route]);        

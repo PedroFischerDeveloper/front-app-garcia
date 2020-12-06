@@ -21,7 +21,9 @@ export class DashboardComponent implements OnInit {
     this.token = JSON.parse(localStorage.getItem('token'));
     this.user =  JSON.parse(atob(this.token));
    
-
+    if(this.user == undefined || this.user == null) {
+      this._router.navigate(['auth']);
+    }
     if(this.token == undefined || this.token == null) {
       this._router.navigate(['auth']);
     }
