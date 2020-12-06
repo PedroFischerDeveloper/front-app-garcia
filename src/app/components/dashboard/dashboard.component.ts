@@ -28,13 +28,16 @@ export class DashboardComponent implements OnInit {
     if(this.user == undefined || this.user == null) {
       this._router.navigate(['auth']);
     }
-    
+    this.loadData();
+  }
 
+  loadData() {
     this.service.getAll("topics").subscribe((response: any) => {
       const array = response.filter(element => {
           return element.user.id == this.user.id;
       });
       this.data = array;
+      console.log(this.data)
     });
   }
 
@@ -61,12 +64,7 @@ export class DashboardComponent implements OnInit {
         })
       })
 
-      let index = this.data.map(element => { 
-        return element.id
-      }).indexOf(id);
-      
-      this.data.splice(index, 1);
-    
+      this.loadData();
   }
 
   logout() {
