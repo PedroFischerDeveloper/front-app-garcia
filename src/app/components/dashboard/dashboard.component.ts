@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
     if(this.token == undefined || this.token == null) {
       this._router.navigate(['auth']);
     }
-    
+
     this.user =  JSON.parse(atob(this.token));
    
     if(this.user == undefined || this.user == null) {
@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
         if(resp) {
           Swal.fire({
             icon: 'success',
-            title: 'Post deletado com sucesso!',
+            title: 'Tópico fechado com sucesso!',
             text: 'Tente novamente'
           })
         }
