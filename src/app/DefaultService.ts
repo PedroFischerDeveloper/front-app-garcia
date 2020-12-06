@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class DefaultService {
 
   
-  private base = "http://apiids.herokuapp.com/api/";
+  private base = "https://apiids.herokuapp.com/api/";
   
   constructor(private http: HttpClient) { }
 
