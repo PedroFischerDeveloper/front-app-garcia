@@ -18,17 +18,19 @@ export class DashboardComponent implements OnInit {
   constructor(private _router: Router, private service: DefaultService){ }
 
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('user'));
-    
-    if(this.user.token == undefined || this.user.token == null) {
+    this.token = JSON.parse(localStorage.getItem('token'));
+    this.user =  JSON.parse(atob(this.token));
+   
+
+    if(this.token == undefined || this.token == null) {
       this._router.navigate(['auth']);
-    } else {
-      this.token = this.user.token;
     }
+
     this.service.getAll("topics").subscribe((response: any) => {
-      console.log(response)
-      console.log(this.data)
-      this.data = response;
+      const array = response.filter(element => {
+          return element.user.id == this.user.id;
+      });
+      this.data = array;
     });
   }
 
@@ -45,8 +47,6 @@ export class DashboardComponent implements OnInit {
             title: 'Post deletado com sucesso!',
             text: 'Tente novamente'
           })
-
-
         }
       },
       err => {
@@ -71,6 +71,6 @@ export class DashboardComponent implements OnInit {
   }
 
   newPost() {
-    this._router.navigate(['post']);
+    this._router.navigate(['topic']);
   }
 }

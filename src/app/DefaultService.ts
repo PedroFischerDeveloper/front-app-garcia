@@ -29,6 +29,13 @@ export class DefaultService {
     });
   }
 
+
+  newPost(url: string, body: any, token: any, id:number) {
+    return this.http.post(this.base + url + id, body,{
+      headers: new HttpHeaders().set('Authorization', token),
+    });
+  }
+
   update(url: string, id: number, body:string) {
     return this.http.put(`${this.base + url}/${id}`, body, {observe: 'response'});
   }

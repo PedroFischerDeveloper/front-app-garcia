@@ -23,23 +23,21 @@ export class PostsComponent implements OnInit {
   });
   
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('user'));
-    console.log(this.user);
-    if(this.user == undefined || this.user == null) {
+    this.token = JSON.parse(localStorage.getItem('token'));
+    this.user =  JSON.parse(atob(this.token));
+   
+    if(this.token == undefined || this.token == null) {
       this._router.navigate(['auth']);
     }
 
     this.sub = this.route.params.subscribe(params => {
       console.log(params)
-      this.id = +params['id']; // (+) converts string 'id' to a number
-   });
+      this.id = +params['id']; 
+    });
 
   }
-
-  
   create() {
-
-    this.service.create("topics", this.form.value, this.user.token)
+    this.service.create("topics", this.form.value, this.token)
     .subscribe((resp)=> {
       if(resp) {        
         Swal.fire({
@@ -48,6 +46,7 @@ export class PostsComponent implements OnInit {
           text: ''
         })
       }
+      this._router.navigate(['topic/details/', resp.id]);
     },
     err => {
       Swal.fire({
@@ -56,9 +55,7 @@ export class PostsComponent implements OnInit {
         text: 'Tente novamente'
       })
     })
-
   }
-
   redirect(route) {
     this._router.navigate([route]);
   }

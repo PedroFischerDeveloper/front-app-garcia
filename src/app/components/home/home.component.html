@@ -8,7 +8,7 @@
                 <input type="text" class="form-control">
             </div>
         </div>
-        <div class="col-md-4 col-sm-12 mt-2 mb-2 text-center">
+        <div class="col-md-4 col-sm-12 mt-2 mb-2 text-center" *ngIf="!token">
            <button (click)="redirect('auth')" class="btn btn-primary m-1 " >
                Login
            </button>
@@ -16,16 +16,21 @@
                Register
             </button>
         </div>
+        <div class="col-md-4 col-sm-12 mt-2 mb-2 text-center" *ngIf="token">
+            <button (click)="logout()" class="btn btn-success  m-1">
+                Logout
+             </button>
+         </div>
     </div>
 </div>
 
 <nav class="navbar bg-faded">
     <div class="container ">
-        <nav class="nav navbar-logo mx-auto">
+        <!--<nav class="nav navbar-logo mx-auto">
             <a class="nav-link effect h5" routerLink="/home">Tendências</a>
             <a class="nav-link effect h5" routerLink="/home">Fórum</a>
             <a class="nav-link effect h5" routerLink="/home">Novos</a>
-        </nav>
+        </nav>-->
     </div>
 </nav>
 
@@ -38,7 +43,7 @@
                     <h5 class="card-title">{{d.content}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{d.subject}}</h6>
                     <small>{{d.creationDate}}</small><br>
-                    <a href="" (click)="navigateTo(d.id)">Ver</a>
+                    <a [routerLink]="['topic/details/', d.id]">Ver</a>
                 </div>
             </div>
         </div>

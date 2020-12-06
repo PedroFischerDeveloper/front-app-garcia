@@ -13,10 +13,6 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'details',
-    component: DetailsComponent,
-  },
-  {
     path: 'register',
     component: RegisterComponent,
   },
@@ -29,12 +25,16 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'post',
+    path: 'topic',
     component: PostsComponent,
   },
   {
-    path: 'post/edit/:id',
+    path: 'topic/edit/:id',
     component: PostEditComponent,
+  },
+  {
+    path: 'topic/details/:id',
+    component: DetailsComponent,
   },
   { path: '**', redirectTo: '/home' }
 ];

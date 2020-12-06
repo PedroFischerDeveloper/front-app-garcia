@@ -1,0 +1,60 @@
+.profile-img {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+}
+.textarea-topic {
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 200px;
+}
+.textarea-topic:focus {
+    box-shadow: none;
+    outline: none !important;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+.border-bottom-color {
+    border-bottom: 1px solid red;
+}
+
+.bg-red {
+    background: red;
+}
+.bg-gray {
+    background: #eee;
+}
+.bg-white {
+    background: #eee;
+}
+.effect {
+    background: none;
+    border-radius: 2px;
+    transition: all 500ms ease; 
+}
+.effect:hover {
+    background: red;
+    color: white;
+}
+.titleLogo {
+    font-size: 1.6em;
+    color: red;
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    margin-top: 5px;
+}
+.bg-gray {
+    background: #eee;
+}
+.card {
+    border-radius: 5px;
+}
+.card-head {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 15px;
+    background: red;
+}
+
+
