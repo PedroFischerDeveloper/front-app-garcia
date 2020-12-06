@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   apiUrl: 'http://apiids.herokuapp.com/api',
-  clientUrl: 'http://localhost:4200',
+  clientUrl: 'http://apiids.herokuapp.com',
   localstorage: {
     tokenName: 'scrtoken'
   }
