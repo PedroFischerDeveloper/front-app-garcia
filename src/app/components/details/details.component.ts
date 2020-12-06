@@ -26,8 +26,14 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = JSON.parse(localStorage.getItem('token'));
-    if(!this.token == undefined && !this.token == null) {
-      this.user =  JSON.parse(atob(this.token));
+    if(this.token == undefined || this.token == null) {
+      this._router.navigate(['auth']);
+    }
+    
+    this.user =  JSON.parse(atob(this.token));
+   
+    if(this.user == undefined || this.user == null) {
+      this._router.navigate(['auth']);
     }
 
 

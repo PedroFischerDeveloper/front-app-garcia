@@ -19,14 +19,16 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = JSON.parse(localStorage.getItem('token'));
+    if(this.token == undefined || this.token == null) {
+      this._router.navigate(['auth']);
+    }
+    
     this.user =  JSON.parse(atob(this.token));
    
     if(this.user == undefined || this.user == null) {
       this._router.navigate(['auth']);
     }
-    if(this.token == undefined || this.token == null) {
-      this._router.navigate(['auth']);
-    }
+    
 
     this.service.getAll("topics").subscribe((response: any) => {
       const array = response.filter(element => {
