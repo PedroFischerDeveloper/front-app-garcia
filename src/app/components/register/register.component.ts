@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     this.service.register("users", this.form.value)
     .subscribe( response => {
       if(response) {
-        this._router.navigate(['dashboard']);
+        this._router.navigate(['auth']);
       }
     },
     err => {
