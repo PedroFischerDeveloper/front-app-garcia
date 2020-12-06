@@ -25,9 +25,10 @@ export class HomeComponent implements OnInit {
 
   loadData() {
     this.service.getAll("topics").subscribe((response: any) => {
-      console.log(response)
-      
-      this.data = response; 
+      const array = response.filter(element => {
+        return element.id >= 15
+      });
+      this.data = array; 
     });
   }
   navigateTo(id) {

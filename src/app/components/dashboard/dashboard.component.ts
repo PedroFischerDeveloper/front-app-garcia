@@ -36,8 +36,11 @@ export class DashboardComponent implements OnInit {
       const array = response.filter(element => {
           return element.user.id == this.user.id;
       });
-      this.data = array;
-      console.log(this.data)
+
+      const arrayTwo = array.filter(element => {
+        return element.id >= 15
+      });
+      this.data = arrayTwo;
     });
   }
 
