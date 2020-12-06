@@ -5,6 +5,7 @@ import { DefaultService } from 'src/app/DefaultService';
 import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -38,7 +39,7 @@ export class PostsComponent implements OnInit {
   }
   create() {
     this.service.create("topics", this.form.value, this.token)
-    .subscribe((resp)=> {
+    .subscribe((resp: any)=> {
       if(resp) {        
         Swal.fire({
           icon: 'success',

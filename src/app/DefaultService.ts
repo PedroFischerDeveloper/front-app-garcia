@@ -36,8 +36,10 @@ export class DefaultService {
     });
   }
 
-  update(url: string, id: number, body:string) {
-    return this.http.put(`${this.base + url}/${id}`, body, {observe: 'response'});
+  update(url: string, id: number, body:string, token: string) {
+    return this.http.put(`${this.base + url}/${id}`, body, {
+      headers: new HttpHeaders().set('Authorization', token),
+    });
   }
 
   delete(url: string, id: number, token) {

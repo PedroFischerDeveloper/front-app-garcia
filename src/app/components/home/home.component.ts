@@ -19,12 +19,13 @@ export class HomeComponent implements OnInit {
   constructor(private service:DefaultService, private _router: Router) { }
 
   ngOnInit(): void {
-    this.token = JSON.parse(localStorage.getItem('token'));
-    this.user =  JSON.parse(atob(this.token));
-
+    this.loadData();
+  }
+  
+  loadData() {
     this.service.getAll("topics").subscribe((response: any) => {
       console.log(response)
-      this.data = response;
+      this.data = response; 
     });
   }
   navigateTo(id) {

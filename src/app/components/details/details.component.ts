@@ -73,7 +73,6 @@ export class DetailsComponent implements OnInit {
   }
 
   post() {
-    console.log('oi')
     const toPost = {
       content: this.form.value.content.trim(),
     }

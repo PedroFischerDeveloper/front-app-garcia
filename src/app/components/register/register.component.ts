@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
 
 
   redirect(route) {
-    
+    this._router.navigate([route]);    
   }
 
   register() {

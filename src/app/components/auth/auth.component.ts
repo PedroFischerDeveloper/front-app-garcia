@@ -30,7 +30,7 @@ export class AuthComponent implements OnInit {
   login() {
   
     this.service.login("users/login", this.form.value)
-    .subscribe((resp)=> {
+    .subscribe((resp: any)=> {
       if(resp) {
         localStorage.setItem('token', JSON.stringify(resp.body.token))
         this._router.navigate(['dashboard']);
