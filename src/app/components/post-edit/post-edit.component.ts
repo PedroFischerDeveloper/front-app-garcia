@@ -31,7 +31,7 @@ export class PostEditComponent implements OnInit {
   ngOnInit(): void {
     this.token = JSON.parse(localStorage.getItem('token'));
     if(this.token == undefined || this.token == null) {
-      this._router.navigate(['auth']);
+      //this._router.navigate(['auth']);
     }
     
     this.user =  JSON.parse(atob(this.token));
